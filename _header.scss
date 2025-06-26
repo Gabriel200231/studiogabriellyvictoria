@@ -1,0 +1,32 @@
+.bg-home {
+  background: linear-gradient(to right, $color-bg-gradient-start, $color-bg-gradient-end);
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  z-index: 1000;
+}
+
+.header-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.header-icons i {
+  color: $color-gold;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  font-size: 28px;
+
+  &:hover {
+    transform: scale(1.2);
+    color: $color-gold-dark;
+  }
+}
