@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Landing Page - Cabeleireira</title>
+  <title>Studio Gabrielly Victoria </title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Roboto:wght@300;400&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <style>
@@ -13,6 +13,7 @@
     html, body {
       height: 100%;
       font-family: 'Inter', sans-serif;
+      overflow-y: auto;
       overflow-x: hidden;
     }
     body {
@@ -26,6 +27,75 @@
       background-size: cover;
       min-height: 100vh;
       position: relative;
+    }
+
+    /* Estilos específicos para mobile */
+    @media (max-width: 768px) {
+      body {
+        overflow-y: scroll;
+        -webkit-overflow-scrolling: touch;
+      }
+      
+      .landing-wrapper {
+        margin: 4rem auto 6rem auto;
+        padding: 2rem 1rem;
+        border-radius: 16px;
+      }
+      
+      .hero {
+        max-width: 100%;
+      }
+      
+      .image-container {
+        width: 200px;
+        height: 200px;
+      }
+      
+      .headline h1 {
+        font-size: 1.4rem;
+      }
+      
+      .headline p {
+        font-size: 1rem;
+        min-height: 60px;
+      }
+      
+      .about-content,
+      .diferenciais-content {
+        margin: 1.5rem auto 3rem auto;
+        padding: 1rem;
+      }
+      
+      .services-wrapper {
+        margin: 1.5rem auto 3rem auto;
+        gap: 0.5rem;
+      }
+      
+      .side-image.left,
+      .side-image.right {
+        width: 60px;
+        height: 80px;
+      }
+      
+      .services-carousel,
+      .services-carousel img {
+        width: 150px;
+        height: 150px;
+      }
+      
+      .instagram-icon {
+        top: 15px;
+        left: 15px;
+      }
+      
+      .instagram-icon i {
+        font-size: 24px;
+      }
+
+      .scroll-indicator {
+        font-size: 20px;
+        bottom: -25px;
+      }
     }
 
     .header-content {
@@ -312,6 +382,37 @@
       font-size: 0.9rem;
       margin-top: 0.5rem;
     }
+
+    /* Seta indicadora de rolagem */
+    .scroll-indicator {
+      position: absolute;
+      bottom: -30px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: #8B5CF6;
+      font-size: 24px;
+      animation: bounce 2s infinite;
+      cursor: pointer;
+      z-index: 15;
+      opacity: 0.8;
+      transition: opacity 0.3s ease;
+    }
+
+    .scroll-indicator:hover {
+      opacity: 1;
+    }
+
+    @keyframes bounce {
+      0%, 20%, 50%, 80%, 100% {
+        transform: translateX(-50%) translateY(0);
+      }
+      40% {
+        transform: translateX(-50%) translateY(-10px);
+      }
+      60% {
+        transform: translateX(-50%) translateY(-5px);
+      }
+    }
   </style>
 </head>
 <body>
@@ -328,17 +429,22 @@
         <img src="Frente Gabrielly.jpg" alt="Cabeleireira em destaque" />
       </div>
       <div class="headline">
-        <h1>Gabrielly Victória</h1>
+        <h1>Gabrielly Victoria</h1>
         <p id="typing-text"></p>
         <a href="https://wa.me/5511974887473" class="cta-button" target="_blank">Agende seu horário</a>
       </div>
     </main>
+
+    <!-- Seta indicadora de rolagem -->
+    <div class="scroll-indicator" onclick="scrollToContent()">
+      <i class="fas fa-chevron-down"></i>
+    </div>
   </div>
 
   <!-- SOBRE - Centralizado -->
   <section class="about-content">
     <h2>Sobre</h2>
-    <p>Sou Gabrielly Victória, cabeleireira especializada em alisamento capilar, com 7 anos de experiência dedicada à aplicação de técnicas seguras, livres de formol e aditivos prejudiciais. Comprometida com a saúde e o bem-estar capilar, ofereço um atendimento personalizado, focado na excelência e no cuidado com cada cliente, garantindo resultados naturais, duradouros e de alta qualidade.</p>
+    <p>Sou Gabrielly Victoria, cabeleireira especializada em alisamento capilar, com 7 anos de experiência dedicada à aplicação de técnicas seguras, livres de formol e aditivos prejudiciais. Comprometida com a saúde e o bem-estar capilar, ofereço um atendimento personalizado, focado na excelência e no cuidado com cada cliente, garantindo resultados naturais, duradouros e de alta qualidade.</p>
   </section>
 
   <div class="services-wrapper">
@@ -360,10 +466,21 @@
 
   <section class="diferenciais-content">
     <h2>Serviços</h2>
-    <p>Ofereço serviços especializados de alisamento capilar, incluindo alisamento definitivo, escova progressiva e alisamento temporário para ocasiões especiais. Realizo selagem térmica para hidratação e brilho, reconstrução capilar pós-alisamento para fortalecimento dos fios, consulta e diagnóstico personalizados para atender às necessidades específicas do seu cabelo e manutenção com retoques periódicos para resultados sempre perfeitos.</p>
+    <p>Ofereço alisamento definitivo, escova progressiva, selagem térmica e reconstrução capilar pós-química, com foco na saúde dos cabelos. Cada tratamento restaura vitalidade, brilho e maciez, garantindo resultados duradouros. Utilizo técnicas atualizadas e produtos de alta qualidade, respeitando as necessidades individuais para um atendimento personalizado e eficaz.</p>
   </section>
 
   <script>
+    // Função para rolagem suave
+    function scrollToContent() {
+      const aboutSection = document.querySelector('.about-content');
+      if (aboutSection) {
+        aboutSection.scrollIntoView({ 
+          behavior: 'smooth',
+          block: 'start'
+        });
+      }
+    }
+
     const texto = "Especialista em alisamento, aplicando técnicas avançadas para cabelos lisos, saudáveis e duradouros.";
     const elemento = document.getElementById('typing-text');
     let index = 0;
